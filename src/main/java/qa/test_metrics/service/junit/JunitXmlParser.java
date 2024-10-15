@@ -133,11 +133,11 @@ public class JunitXmlParser implements Parser {
         List<ScenarioResult> scenarioResults = new ArrayList<>();
         for (JunitTestSuite suite : testSuites) {
             for (JunitTestCase testCase : suite.getJunitTestCases()) {
-                String status = "PASSED";
+                String status = "passed";
                 if (testCase.getFailure() != null || testCase.getError() != null) {
-                    status = "FAILED";
+                    status = "failed";
                 } else if (testCase.getSkipped() != null) {   //ignored are considered as skipped in junit report
-                    status = "SKIPPED";
+                    status = "skipped";
                 }
 
                 ScenarioResult scenarioResult = new ScenarioResult(
